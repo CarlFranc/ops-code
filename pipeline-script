@@ -14,8 +14,16 @@ pipeline {
         }
         stage('Build') {
             steps {
+                sh '''pwd'''
+                dir('separateDir') {
+                    sh '''
+                        echo "Currently inside dir directive..."
+                        pwd
+                    '''
+                }
                 sh '''
                     echo 'Building in progress...'
+                    pwd
                     echo "${env}"
                 '''
             }
