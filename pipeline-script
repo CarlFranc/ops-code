@@ -20,7 +20,7 @@ pipeline {
             steps {
                 sh '''pwd'''
                 dir('separateDir') {
-                    checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: $TARGET_REPO]])
+                    checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: ${TARGET_REPO}]])
                     sh '''
                         echo "Currently inside dir directive..."
                         pwd
