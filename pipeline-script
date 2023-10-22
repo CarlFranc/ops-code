@@ -2,10 +2,6 @@ pipeline {
 
     agent any
 
-    environment {
-        TARGET_REPO = 'git@github.com:CarlFranc/javaintermediate.git'
-    }
-
     stages {
         stage('Git pull') {
             steps {
@@ -20,7 +16,7 @@ pipeline {
             steps {
                 sh '''pwd'''
                 dir('separateDir') {
-                    checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: ${TARGET_REPO}]])
+                    checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'git@github.com:CarlFranc/javaintermediate.git']])
                     sh '''
                         echo "Currently inside dir directive..."
                         pwd
