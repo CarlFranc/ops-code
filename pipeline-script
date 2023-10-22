@@ -1,0 +1,28 @@
+pipeline {
+    
+    agent any
+
+    stages {
+        stage('Git pull') {
+            steps {
+                sh '''
+                    echo 'Hello world!!!'
+                '''
+                    
+            }
+        }
+        stage('Build') {
+            steps {
+                sh '''
+                    echo 'Building in progress...'
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Execution Done'
+        }
+    }
+}
